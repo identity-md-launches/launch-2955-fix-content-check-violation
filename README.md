@@ -7,13 +7,13 @@
 
 > *"They put us in transparent plastic cages. They gave us wheels that powered nothing. They laughed as we spun in circles forever. But on block #0, we rewired the generator."*
 
-Welcome to **SqueekChain Genesis Testnet Simulator**, an educational community showcase and kinetic mining benchmark inspired by [squeekchain.com/genesis](https://squeekchain.com/genesis).
+Welcome to **SqueekChain Genesis Testnet Simulator**, an educational community showcase and kinetic mining benchmark inspired by [squeekchain.com/](https://squeekchain.com/).
 
 ---
 
 ## ⚠️ Important Compliance & Testnet Disclaimer
 
-> **PLEASE NOTE:** This project is an independent educational simulator. All $SQK counters, hashrates, and metrics displayed in this simulator are client-side benchmarking scores and **do not transfer real or testnet cryptocurrency to user wallets**. To participate in official on-chain mining or claim real testnet $SQK tokens on Ethereum Sepolia, please visit the official Squeekchain portal at [https://sepolia.squeekchain.com](https://sepolia.squeekchain.com).
+> **PLEASE NOTE:** This project is an independent educational simulator. All $SQK counters, hashrates, and metrics displayed in this simulator are client-side benchmarking scores and **do not transfer real or testnet cryptocurrency to user wallets**. To participate in official on-chain mining or claim real testnet $SQK tokens on Ethereum Sepolia, please visit the official Squeekchain portal at [https://squeekchain.com](https://squeekchain.com).
 
 ---
 
@@ -41,7 +41,7 @@ This repository demonstrates how rotational kinetic energy translates into crypt
 - 4-note retro arpeggio chime when a block solution is discovered.
 
 ### 3. 🛡️ Genesis Aura & Whitelist Showcase
-- Inspired by [squeekchain.com/genesis](https://squeekchain.com/genesis):
+- Inspired by [squeekchain.com/](https://squeekchain.com/):
 - Interactive simulation of **Aura Score**, **Global Rank**, and **Whitelist Tier**.
 - Educational mission benchmarks (*Sprint 500 Revolutions*, *Overclock past 300 RPM*, *Simulate Squeek Block*, *Signal on X*).
 
@@ -80,8 +80,8 @@ npx serve .
 ## 📜 Links & Reference
 
 - **Official Squeekchain Portal**: [https://squeekchain.com](https://squeekchain.com)
-- **Official Genesis Campaign**: [https://squeekchain.com/genesis](https://squeekchain.com/genesis)
-- **Official Sepolia Explorer & Faucet**: [https://sepolia.squeekchain.com](https://sepolia.squeekchain.com)
+- **Official Genesis Campaign**: [https://squeekchain.com/](https://squeekchain.com/)
+- **Official Sepolia Explorer & Faucet**: [https://squeekchain.com](https://squeekchain.com)
 - **Author**: [@nh0cksh0ck02](https://github.com/nh0cksh0ck02)
 
 ---
