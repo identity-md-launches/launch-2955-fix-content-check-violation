@@ -1,89 +1,66 @@
-# 🐹 SqueekChain Genesis — Testnet Simulator & Kinetic Rig ⚡
+# SqueekChain: Testnet Simulator & Kinetic Benchmark (Demo Mode)
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Consensus](https://img.shields.io/badge/Consensus-Proof--of--Hamster--Work_(PoHW)-FFE600.svg)](https://squeekchain.com/genesis)
-[![Rig Telemetry](https://img.shields.io/badge/Hardware-WHEELY9000_(Simulator)-35D07F.svg)](https://squeekchain.com)
-[![Mode](https://img.shields.io/badge/Environment-Educational_Simulation-A78BFA.svg)](https://sepolia.squeekchain.com)
+An educational, client-side WHEELY9000 hamster-wheel benchmark. All $SQK values are simulated points. **No real or testnet cryptocurrency is transferred.** For official testnet tokens, visit [sepolia.squeekchain.com](https://sepolia.squeekchain.com).
 
-> *"They put us in transparent plastic cages. They gave us wheels that powered nothing. They laughed as we spun in circles forever. But on block #0, we rewired the generator."*
+The existing vanilla HTML/CSS/JavaScript stack, neon green/gold palette, canvas hamster, missions, character concepts and fictional origin story are retained. The site now starts at zero, describes its illustrative data honestly, and records a real local score snapshot instead of presenting a claim or transfer flow.
 
-Welcome to **SqueekChain Genesis Testnet Simulator**, an educational community showcase and kinetic mining benchmark inspired by [squeekchain.com/](https://squeekchain.com/).
+## Install, preview and rebuild
 
----
+Node.js 22 or newer is sufficient. The site has **no runtime dependencies**, backend, API keys, RPC service, or remote font requirements. Nothing needs installing to rebuild or preview:
 
-## ⚠️ Important Compliance & Testnet Disclaimer
-
-> **PLEASE NOTE:** This project is an independent educational simulator. All $SQK counters, hashrates, and metrics displayed in this simulator are client-side benchmarking scores and **do not transfer real or testnet cryptocurrency to user wallets**. To participate in official on-chain mining or claim real testnet $SQK tokens on Ethereum Sepolia, please visit the official Squeekchain portal at [https://squeekchain.com](https://squeekchain.com).
-
----
-
-## 🌟 Overview & Lore
-
-While mega-corporations burn gigawatts of coal and gas powering centralized ASIC mining farms, one rogue cyber-hamster named **Squeeky 001** broke free from captivity. By retrofitting an industrial-grade rotary telemetry sensor onto its running wheel—the **WHEELY9000**—it pioneered **Proof-of-Hamster-Work (PoHW)**: a decentralized, 100% biological kinetic consensus protocol.
-
-This repository demonstrates how rotational kinetic energy translates into cryptographic block difficulty.
-
----
-
-## 🚀 Key Features
-
-### 1. ⚙️ The WHEELY9000 Interactive Simulator
-- **60 FPS Canvas Physics Engine**: Rotational inertia, deceleration, and kinetic speed lines.
-- **Procedural Cyber-Hamster**: Fully animated legs, bobbing motion, and neon cyber visor synced to actual cadence.
-- **Particle Spark System**: High-velocity sparks and exhaust smoke trigger as your wheel surpasses 300+ RPM.
-- **Telemetry Console**: Real-time Wheel RPM, KH/s Hashrate, Stamina, Block Solution Progress, and live PoHW kernel terminal logs.
-- **Turbo Overdrive Mode**: Autonomous kinetic testing with one click.
-
-### 2. 🎵 Procedural Web Audio Synthesizer
-- Built 100% on native **Web Audio API** (zero external mp3/wav asset dependencies).
-- Real-time frequency-modulated wheel whirring that pitches up with rotational velocity.
-- Authentic cyber mouse squeak triggers on kinetic impulse.
-- 4-note retro arpeggio chime when a block solution is discovered.
-
-### 3. 🛡️ Genesis Aura & Whitelist Showcase
-- Inspired by [squeekchain.com/](https://squeekchain.com/):
-- Interactive simulation of **Aura Score**, **Global Rank**, and **Whitelist Tier**.
-- Educational mission benchmarks (*Sprint 500 Revolutions*, *Overclock past 300 RPM*, *Simulate Squeek Block*, *Signal on X*).
-
-### 4. 🎴 3D Gyro/Tilt Squeek Genesis NFTs
-- Interactive cards reacting to cursor movement with 3D perspective depth.
-- Concept art previews of **Legendary Cyber-Squeeky Alpha**, **Epic Wheel Overclocker**, and **Rare Punk Rebel Node**.
-
-### 5. 💰 $SQK Tokenomics (2.1 Billion Fixed Supply)
-- **60%**: Proof-of-Hamster-Work Mining Pool.
-- **20%**: Genesis Whitelist & Aura Distribution.
-- **15%**: Kinetic Ecosystem & Rodent Sanctuary Grants.
-- **5%**: Core Rodent Architects.
-
----
-
-## 🌐 Quick Start & Local Preview
-
-Clone the repository and open in any modern web browser:
-
-```bash
-git clone https://github.com/nh0cksh0ck02/squeekchain-genesis-hamster.git
-cd squeekchain-genesis-hamster
+```sh
+node scripts/build.mjs
+node scripts/preview.mjs
 ```
 
-Run with any static server:
-```bash
-# Using Python
-python -m http.server 8080
+Open `http://127.0.0.1:4173/preview/`. Stop the preview with Ctrl+C. An optional port can be passed as `node scripts/preview.mjs 8080`.
 
-# Or using Node.js
-npx serve .
+`dist/index.html`, `dist/app.js`, `dist/wallet.js`, `dist/styles.css` and `dist/assets/` are the complete production export. Serve the contents of `dist/` at any static hosting subpath. Asset references are relative; navigation uses in-page hashes. Rebuild after changing source. No publication or on-chain deployment is performed by these scripts.
+
+## Use the demo
+
+- Select **Spin wheel**, use Enter/Space on that button, or hold Space with the page body focused.
+- **Start auto turbo** runs the benchmark; **Pause auto turbo** stops both wheel speed and score accumulation. Hiding the tab also pauses the session. Sound starts off and requires explicit opt-in.
+- **Record Simulation Score (Demo)** saves the latest points, revolutions, peak RPM, simulated block count and local timestamp to this browser. It replaces the previous record, keeps the current session running, and never requires a wallet. Browser storage failures are reported as a record for this tab only. Reset clears the session and missions while preserving the last record.
+- Each revolution adds 0.5 demo points. Every 120 revolutions completes a simulated block. The displayed hashrate is RPM × 1.85, an illustrative calculation rather than cryptographic work.
+- Aura missions are local demo progress. Character traits and allocation figures are explicitly illustrative. There is no global rank, verified whitelist, minted NFT, or token entitlement in this tool. The X link only opens an optional draft and awards nothing.
+
+The optional **Connect wallet** control opens a read-only spectator dialog. EIP-6963 lists named browser wallets, with a legacy browser-provider fallback. Supported phone links open the same page in MetaMask, Coinbase Wallet or Phantom. The sole provider request is `eth_requestAccounts`; the site displays the selected address and handles account changes and local disconnection. It never signs, sends, switches networks, reads token balances, or couples a score to an address. Disconnecting forgets the address on this page; it does not revoke permissions in the wallet. There is no relay, WalletConnect project, passkey-wallet creation or automatic reconnection.
+
+## Locked development tools and checks
+
+`tooling/package.json` and `tooling/package-lock.json` pin TypeScript 5.9.3, Playwright 1.64.1 and axe-core's Playwright adapter 4.14.0. They are new, separate tooling; no existing dependency or build configuration was replaced.
+
+To keep dependency directories outside the checkout, install the locked tools in a temporary folder. Run these commands in the same shell/session:
+
+```sh
+mkdir -p /tmp/squeekchain-tooling
+cp tooling/package.json tooling/package-lock.json /tmp/squeekchain-tooling/
+npm ci --prefix /tmp/squeekchain-tooling --ignore-scripts
+node /tmp/squeekchain-tooling/node_modules/typescript/bin/tsc --project jsconfig.json
+PLAYWRIGHT_BROWSERS_PATH=/tmp/squeekchain-browsers node /tmp/squeekchain-tooling/node_modules/playwright/cli.js install chromium-headless-shell
+node scripts/build.mjs
+TMPDIR=/tmp PLAYWRIGHT_BROWSERS_PATH=/tmp/squeekchain-browsers SQUEEK_TOOLING_DIR=/tmp/squeekchain-tooling/node_modules node scripts/validate.mjs
 ```
 
----
+Alternatively, in an ordinary local development checkout, `npm ci --prefix tooling`, `npm --prefix tooling run typecheck`, `npm --prefix tooling run build`, and `npm --prefix tooling run validate` use the same scripts. Install Playwright's headless Chromium first. Generated dependency directories are not deliverables.
 
-## 📜 Links & Reference
+Validation starts and closes its own foreground static server under `/preview/`, checks the actual production export, and writes `docs/validation/interaction-results.json` and screenshots. It covers source/export equality, the local share image, 320/390/768/1440 layouts, the complete guest benchmark, persistence and storage failures, missions, keyboard actions, modal focus, reduced motion, EIP-6963 and legacy provider fixtures, phone-link construction, text enlargement, RTL reflow, resource errors and operation with external services blocked. Virtual browser time advances long benchmark sessions; it does not wait for them in real time. No external posts or transactions are sent.
 
-- **Official Squeekchain Portal**: [https://squeekchain.com](https://squeekchain.com)
-- **Official Genesis Campaign**: [https://squeekchain.com/](https://squeekchain.com/)
-- **Official Sepolia Explorer & Faucet**: [https://squeekchain.com](https://squeekchain.com)
-- **Author**: [@nh0cksh0ck02](https://github.com/nh0cksh0ck02)
+For an optional WebKit smoke check, install Playwright WebKit and its system libraries, then run the same validation with `SQUEEK_WEBKIT=1`. `SQUEEK_CHROMIUM` can select a compatible preinstalled Chromium executable.
 
----
+## Results from this assignment
 
-*Distributed under the MIT License. Educational community simulator.* 🐹⚡
+- Production build: passed; export is 214,604 bytes with all required runtime assets.
+- Strict typecheck: passed (`checkJs`, `strict`, `noEmit` for `app.js` and `wallet.js`).
+- Interaction validation: 12 checks passed, zero failed in the final Chromium run. axe reported zero violations for the tested WCAG A/AA rules on desktop, mobile and the spectator dialog. This is not a claim of complete accessibility conformance.
+- Pinned taste@1 probe: **15/16 passed**, run against `dist/` with `--offline`. The sole flag is the exact required uppercase `TESTNET SIMULATION:` banner. Its casing is intentionally preserved. No overflow, overlapping text, missing assets or measured text-contrast failures remained. At 390×844 the Spin button ends near 612px and the Record button near 701px, both within the first screen.
+- The supplied browser tool failed to launch because its temporary socket path was too long. Foreground Playwright using headless Chromium completed the rendered checks and screenshots. A separate WebKit attempt failed before page load because required system libraries were missing; WebKit behavior remains unverified. No real wallet extension, phone app, physical device, screen reader, native browser zoom or social-crawler unfurl was tested.
+
+See [DESIGN.md](DESIGN.md) for the implemented system and [docs/VALIDATION.md](docs/VALIDATION.md) for all six Better Interface domains, source locations, fixes, evidence and remaining limits. These are worker observations, not independent certification.
+
+## Assets and attribution
+
+Font files are bundled in `assets/fonts/` with their SIL Open Font Licenses. The favicon derives from the existing hamster artwork. `assets/social-card.svg` is the editable source for the bundled 1200×630 PNG share card; neither asset requires a remote service at runtime.
+
+Design review used the supplied Better Interface guide by Jakub Krehel (MIT, commit `267330e1adfc66a718fb65fa6918c1f06d0a689e`) and documentation guidance adapted from Paul Bakaus's Impeccable (Apache-2.0, commit `9d715cc4f5564a990ca8345abfdd5df6dc9b41c8`). The design documentation describes the final implementation rather than reproducing the guides.

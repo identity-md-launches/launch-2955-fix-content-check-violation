@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#121216" />
+    <title>SqueekChain | Testnet Simulator &amp; Kinetic Benchmark (Demo Mode)</title>
+    <meta name="description" content="An educational SqueekChain hamster-wheel benchmark. Spin WHEELY9000 and record simulated scores locally. No cryptocurrency is transferred. Wallets are read-only spectators." />
+    <meta property="og:title" content="SqueekChain | Testnet Simulator &amp; Kinetic Benchmark (Demo Mode)" />
+    <meta property="og:description" content="Spin the wheel. Explore Proof-of-Hamster-Work in an educational demo. All $SQK metrics are simulated scores, never tokens." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./assets/social-card.png" />
+    <meta property="og:image:alt" content="SqueekChain WHEELY9000. Educational testnet simulator. Demo scores only." />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="preload" href="./assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#simulator">Skip to simulator</a>
+    <aside class="testnet-disclaimer-banner" aria-label="Testnet simulation disclaimer">
+      <p><strong>TESTNET SIMULATION:</strong> This is an educational demo for SqueekChain. All $SQK metrics are simulated scores and do not deliver real tokens. For official testnet tokens, visit <a href="https://sepolia.squeekchain.com" target="_blank" rel="noopener noreferrer">sepolia.squeekchain.com</a>.</p>
+    </aside>
+
+    <header class="sqk-navbar">
+      <div class="sqk-nav-container">
+        <a href="#simulator" class="sqk-logo" aria-label="SqueekChain simulator home">
+          <img src="./assets/favicon.svg" width="36" height="36" alt="" />
+          <span class="sqk-brand">Squeek<span class="accent">Chain</span></span>
+        </a>
+        <nav class="sqk-nav-links" aria-label="Main navigation">
+          <a href="#simulator">Benchmark</a>
+          <a href="#genesis-hub">Demo missions</a>
+          <a href="#nfts">Concepts</a>
+          <a href="#lore">The story</a>
+        </nav>
+        <button id="connect-wallet-btn" class="sqk-btn sqk-btn-outline" type="button" aria-haspopup="dialog">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="15" rx="3"/><path d="M3 9V6a3 3 0 0 1 3-3h11M16 12h5v5h-5a2.5 2.5 0 0 1 0-5Z"/></svg>
+          <span class="wallet-text">Connect wallet</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="simulator" tabindex="-1">
+      <div class="sqk-hero">
+        <div>
+          <h1>Testnet Simulator &amp;<br class="desktop-break" /> Kinetic Benchmark</h1>
+          <p class="hero-subtitle">Educational Proof-of-Hamster-Work. <strong>Demo Mode.</strong></p>
+        </div>
+        <span class="mode-indicator"><span class="dot"></span> Local simulation</span>
+      </div>
+
+      <section class="simulator-wrapper" aria-label="WHEELY9000 kinetic benchmark">
+        <div class="sim-viewport">
+          <div class="rig-heading">
+            <h2>WHEELY9000</h2>
+            <button id="sound-toggle" class="sqk-btn quiet-btn" type="button" aria-pressed="false">Sound off</button>
+          </div>
+          <div class="wheel-scene">
+            <canvas id="wheel-canvas" width="600" height="600" aria-hidden="true"></canvas>
+            <div class="scene-metric rpm-metric"><span>Wheel RPM</span><strong id="display-rpm">0</strong></div>
+            <div class="scene-metric score-metric"><span>$SQK demo score</span><strong id="m-sqk">0.00</strong><span>points only</span></div>
+          </div>
+          <div class="wheel-controls">
+            <button id="run-btn" class="sqk-btn sqk-btn-primary" type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m13 2-9 12h7l-1 8 10-13h-7Z"/></svg> Spin wheel</button>
+            <button id="turbo-toggle-btn" class="sqk-btn sqk-btn-outline" type="button" aria-pressed="false">Start auto turbo</button>
+          </div>
+          <p class="control-hint">Tap Spin wheel or hold Space to add speed.</p>
+          <button id="record-score-btn" class="sqk-btn record-btn" type="button" disabled aria-describedby="demo-notice record-hint">Record Simulation Score (Demo)</button>
+          <p id="demo-notice" class="demo-notice">Client-side simulation only. No cryptocurrency is transferred.</p>
+          <p id="record-hint" class="control-hint">Spin the wheel to build a score. No wallet needed.</p>
+          <p id="record-status" class="record-status" role="status"></p>
+        </div>
+
+        <div class="sim-telemetry">
+          <div class="telemetry-header"><h2>Session telemetry</h2><span id="session-status" class="telemetry-status">Ready</span></div>
+          <p class="panel-description">Computed in this tab. No live blockchain data.</p>
+          <dl class="telemetry-grid">
+            <div class="metric-box"><dt>Simulated hashrate</dt><dd><span id="m-hash">0.00</span> <small>KH/s</small></dd></div>
+            <div class="metric-box"><dt>Total revolutions</dt><dd id="m-revolutions">0.0</dd></div>
+            <div class="metric-box"><dt>Peak wheel RPM</dt><dd id="display-max-rpm">0</dd></div>
+            <div class="metric-box"><dt>Simulated blocks</dt><dd id="m-blocks">0</dd></div>
+          </dl>
+          <div class="block-progress-label"><label for="block-progress">Next simulated block</label><span id="m-block-progress">0%</span></div>
+          <progress id="block-progress" value="0" max="120">0%</progress>
+          <div class="terminal-box">
+            <div class="terminal-bar"><span>Demo event log</span><button id="terminal-clear" type="button" class="sqk-btn quiet-btn">Clear log</button></div>
+            <ol class="terminal-logs" id="terminal-logs" aria-label="Simulation events" tabindex="0"></ol>
+          </div>
+          <div class="session-actions"><button id="reset-session-btn" type="button" class="sqk-btn sqk-btn-outline">Reset session</button><a href="#genesis-hub">View demo missions ↓</a></div>
+          <details class="method-details"><summary>How the benchmark works</summary><p>Each revolution adds 0.5 demo points; 120 revolutions complete one simulated block. Simulated hashrate is RPM × 1.85. These are illustrative calculations, with no cryptographic mining or network activity.</p><p>Recording saves a snapshot on this browser only, replacing the previous record. Scores are editable local data with no token value or official eligibility.</p></details>
+        </div>
+      </section>
+
+      <section id="genesis-hub" class="sqk-section">
+        <div class="section-header"><h2>Demo missions, local progress</h2><p>Explore the original Genesis-inspired mechanics. Demo Aura points do not grant whitelist access or rewards.</p></div>
+        <div class="aura-hub-grid">
+          <div class="aura-summary">
+            <span class="aura-title">Simulated Aura score</span>
+            <div class="aura-number"><span id="user-aura">0</span> <small>points</small></div>
+            <p><span id="completed-missions">0</span> of 3 missions completed in this tab.</p>
+            <p class="demo-label">Demo progress only</p>
+            <a href="https://squeekchain.com/genesis" target="_blank" rel="noopener noreferrer">Visit official Genesis ↗</a>
+          </div>
+          <ul class="quest-list">
+            <li class="quest-item"><div><h3>Sprint 500 revolutions</h3><p>+100 demo Aura</p></div><div class="quest-progress"><progress id="q1-progress" max="500" value="0" aria-label="Sprint 500 revolutions">0%</progress><span id="q1-status">0 / 500</span></div></li>
+            <li class="quest-item"><div><h3>Reach 300 RPM</h3><p>+150 demo Aura</p></div><div class="quest-progress"><progress id="q2-progress" max="300" value="0" aria-label="Reach 300 RPM">0%</progress><span id="q2-status">0 / 300</span></div></li>
+            <li class="quest-item"><div><h3>Complete a simulated block</h3><p>+200 demo Aura</p></div><div class="quest-progress"><progress id="q3-progress" max="120" value="0" aria-label="Complete a simulated block">0%</progress><span id="q3-status">0 / 120 revolutions</span></div></li>
+          </ul>
+        </div>
+        <div class="share-demo"><a id="share-demo-link" class="sqk-btn sqk-btn-outline" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=Try%20the%20SqueekChain%20WHEELY9000%20educational%20demo.%20Simulated%20scores%20only%3B%20no%20tokens%20are%20transferred.">Share the demo on X ↗</a><p>Opens a draft. Posting is optional and is not verified or rewarded.</p></div>
+      </section>
+
+      <section id="nfts" class="sqk-section">
+        <div class="section-header"><h2>Squeek identity concepts</h2><p>The original showcase’s fictional characters and imagined traits. These are concept previews, not minted NFTs, wallet holdings, or active upgrades.</p></div>
+        <div class="nft-cards-grid">
+        <!-- NFT Card 1 -->
+        <div class="tilt-card" data-tilt>
+          <div class="card-inner">
+            <div class="card-badge rarity-legendary">Legendary concept</div>
+            <div class="card-avatar">
+              <svg aria-hidden="true" viewBox="0 0 160 160" width="120" height="120">
+                <circle cx="80" cy="80" r="70" fill="#1E232B" stroke="#FFE600" stroke-width="3"/>
+                <circle cx="80" cy="85" r="42" fill="#E89B35"/>
+                <circle cx="50" cy="50" r="16" fill="#D48622"/>
+                <circle cx="110" cy="50" r="16" fill="#D48622"/>
+                <circle cx="50" cy="50" r="9" fill="#FFB9B9"/>
+                <circle cx="110" cy="50" r="9" fill="#FFB9B9"/>
+                <rect x="52" y="70" width="56" height="18" rx="6" fill="#17171B" stroke="#35D07F" stroke-width="2"/>
+                <line x1="56" y1="79" x2="104" y2="79" stroke="#35D07F" stroke-width="2"/>
+                <polygon points="76,98 84,98 80,105" fill="#FF8383"/>
+                <path d="M72 108 Q80 114 88 108" stroke="#17171B" stroke-width="3" fill="none"/>
+              </svg>
+            </div>
+            <div class="card-meta">
+              <h3 class="card-name">Cyber-Squeeky Alpha</h3>
+              <div class="trait-row"><span>Concept ID:</span><span class="card-number">#0001</span></div>
+              <div class="trait-row">
+                <span>Imagined hash bonus:</span>
+                <strong>+250% Hash</strong>
+              </div>
+              <div class="trait-row">
+                <span>Imagined multiplier:</span>
+                <strong class="accent-green">3.5x RPM</strong>
+              </div>
+              <div class="trait-row">
+                <span>Story:</span>
+                <span class="status-chip">Cage escaped</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NFT Card 2 -->
+        <div class="tilt-card" data-tilt>
+          <div class="card-inner">
+            <div class="card-badge rarity-epic">Epic concept</div>
+            <div class="card-avatar">
+              <svg aria-hidden="true" viewBox="0 0 160 160" width="120" height="120">
+                <circle cx="80" cy="80" r="70" fill="#1E232B" stroke="#35D07F" stroke-width="3"/>
+                <circle cx="80" cy="85" r="42" fill="#88929A"/>
+                <circle cx="50" cy="50" r="16" fill="#6A737A"/>
+                <circle cx="110" cy="50" r="16" fill="#6A737A"/>
+                <circle cx="50" cy="50" r="9" fill="#FFB9B9"/>
+                <circle cx="110" cy="50" r="9" fill="#FFB9B9"/>
+                <circle cx="66" cy="78" r="12" fill="#17171B" stroke="#00E5FF" stroke-width="2"/>
+                <circle cx="94" cy="78" r="12" fill="#17171B" stroke="#00E5FF" stroke-width="2"/>
+                <circle cx="66" cy="78" r="5" fill="#00E5FF"/>
+                <circle cx="94" cy="78" r="5" fill="#00E5FF"/>
+                <polygon points="76,98 84,98 80,105" fill="#FF8383"/>
+                <path d="M72 108 Q80 114 88 108" stroke="#17171B" stroke-width="3" fill="none"/>
+              </svg>
+            </div>
+            <div class="card-meta">
+              <h3 class="card-name">Wheel Overclocker</h3>
+              <div class="trait-row"><span>Concept ID:</span><span class="card-number">#0420</span></div>
+              <div class="trait-row">
+                <span>Imagined hash bonus:</span>
+                <strong>+180% Hash</strong>
+              </div>
+              <div class="trait-row">
+                <span>Imagined multiplier:</span>
+                <strong class="accent-green">2.2x RPM</strong>
+              </div>
+              <div class="trait-row">
+                <span>Story:</span>
+                <span class="status-chip">Overheat resistant</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NFT Card 3 -->
+        <div class="tilt-card" data-tilt>
+          <div class="card-inner">
+            <div class="card-badge rarity-rare">Rare concept</div>
+            <div class="card-avatar">
+              <svg aria-hidden="true" viewBox="0 0 160 160" width="120" height="120">
+                <circle cx="80" cy="80" r="70" fill="#1E232B" stroke="#A78BFA" stroke-width="3"/>
+                <circle cx="80" cy="85" r="42" fill="#F4B266"/>
+                <circle cx="50" cy="50" r="16" fill="#D89240"/>
+                <circle cx="110" cy="50" r="16" fill="#D89240"/>
+                <circle cx="50" cy="50" r="9" fill="#FFB9B9"/>
+                <circle cx="110" cy="50" r="9" fill="#FFB9B9"/>
+                <path d="M72 38 L80 18 L88 38 Z" fill="#A78BFA"/>
+                <circle cx="66" cy="78" r="6" fill="#17171B"/>
+                <circle cx="94" cy="78" r="6" fill="#17171B"/>
+                <polygon points="76,98 84,98 80,105" fill="#FF8383"/>
+                <path d="M72 108 Q80 114 88 108" stroke="#17171B" stroke-width="3" fill="none"/>
+              </svg>
+            </div>
+            <div class="card-meta">
+              <h3 class="card-name">Punk Rebel Node</h3>
+              <div class="trait-row"><span>Concept ID:</span><span class="card-number">#1337</span></div>
+              <div class="trait-row">
+                <span>Imagined hash bonus:</span>
+                <strong>+120% Hash</strong>
+              </div>
+              <div class="trait-row">
+                <span>Imagined multiplier:</span>
+                <strong class="accent-green">1.8x RPM</strong>
+              </div>
+              <div class="trait-row">
+                <span>Story:</span>
+                <span class="status-chip">Revolutionary</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section id="lore" class="sqk-section lore-section">
+        <div class="section-header"><h2>A hamster, a wheel, a rebellion.</h2><p>The fictional origin story behind this educational demo.</p></div>
+        <blockquote>“They gave us wheels that powered nothing. But on block #0, we rewired the generator.”</blockquote>
+        <div class="manifesto-columns">
+          <div><h3>Squeeky 001 escapes</h3><p>A rogue cyber-hamster breaks out of its cage and attaches a rotary sensor to the WHEELY9000. In this story, a running wheel becomes a rebellious little engine.</p></div>
+          <div><h3>From cadence to counters</h3><p>This demo uses wheel speed to illustrate the idea of Proof-of-Hamster-Work. The telemetry is a mathematical toy, not physical sensor data or a working consensus protocol.</p></div>
+          <div><h3>Explore the actual testnet</h3><p>This page stays in Demo Mode. For official testnet tokens and participation details, go to the <a href="https://sepolia.squeekchain.com" target="_blank" rel="noopener noreferrer">official Sepolia portal ↗</a>.</p></div>
+        </div>
+      </section>
+
+      <section id="tokenomics" class="sqk-section">
+        <div class="section-header"><h2>Illustrative $SQK allocation model</h2><p>The original showcase’s 2.1 billion unit model, retained as an educational example. It is not a verified supply, distribution, or entitlement.</p></div>
+        <dl class="token-breakdown-list">
+          <div class="token-row"><dt>PoHW mining pool concept</dt><dd><strong>60%</strong><span>1,260,000,000 illustrative units</span></dd></div>
+          <div class="token-row"><dt>Genesis &amp; Aura concept</dt><dd><strong>20%</strong><span>420,000,000 illustrative units</span></dd></div>
+          <div class="token-row"><dt>Ecosystem &amp; sanctuary concept</dt><dd><strong>15%</strong><span>315,000,000 illustrative units</span></dd></div>
+          <div class="token-row"><dt>Core architects concept</dt><dd><strong>5%</strong><span>105,000,000 illustrative units</span></dd></div>
+        </dl>
+      </section>
+    </main>
+
+    <footer class="sqk-footer">
+      <div><a href="#simulator" class="sqk-brand">Squeek<span class="accent">Chain</span></a><p>Testnet Simulator &amp; Kinetic Benchmark (Demo Mode).</p><p>Independent educational showcase. Wallets are read-only spectators.</p></div>
+      <nav aria-label="Official and community links"><a href="https://sepolia.squeekchain.com" target="_blank" rel="noopener noreferrer">Official testnet portal ↗</a><a href="https://squeekchain.com/genesis" target="_blank" rel="noopener noreferrer">Official Genesis ↗</a><a href="https://twitter.com/squeekchain" target="_blank" rel="noopener noreferrer">SqueekChain on X ↗</a><a href="#tokenomics">Illustrative allocation model</a></nav>
+    </footer>
+
+    <dialog id="wallet-dialog" aria-labelledby="wallet-title" aria-describedby="wallet-notice">
+      <div class="dialog-heading"><h2 id="wallet-title">Read-only spectator</h2><button id="wallet-close" type="button" class="sqk-btn quiet-btn" aria-label="Close wallet dialog">×</button></div>
+      <p id="wallet-notice">Optional: display your wallet address. No signatures, transactions, token requests, or network changes. Your demo score stays independent of your wallet.</p>
+      <p id="wallet-current" class="wallet-address" hidden></p>
+      <div id="wallet-options" class="wallet-options"></div>
+      <p id="wallet-status" class="wallet-status" role="status"></p>
+      <button id="wallet-disconnect" class="sqk-btn sqk-btn-outline" type="button" hidden>Disconnect spectator</button>
+      <p class="control-hint">You can close this and use the entire simulator as a guest.</p>
+    </dialog>
+    <noscript><p class="noscript-notice">Enable JavaScript to run the wheel and record demo scores. This page never transfers cryptocurrency.</p></noscript>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>

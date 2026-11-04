@@ -1,0 +1,136 @@
+{
+  "checkedAt": "2026-11-04T08:26:22.886Z",
+  "passed": 12,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Production export matches source and includes the local share image",
+      "passed": true,
+      "detail": {
+        "files": 12,
+        "bytes": 214604,
+        "shareImage": "1200 × 630 PNG"
+      }
+    },
+    {
+      "name": "Responsive export, exact notices, first-screen controls and local assets",
+      "passed": true,
+      "detail": {
+        "measured": [
+          {
+            "width": 320,
+            "height": 780,
+            "spinBottom": 711.15625,
+            "recordBottom": 841.15625,
+            "overflow": 0
+          },
+          {
+            "width": 390,
+            "height": 844,
+            "spinBottom": 611.765625,
+            "recordBottom": 700.765625,
+            "overflow": 0
+          },
+          {
+            "width": 768,
+            "height": 1024,
+            "spinBottom": 724.1875,
+            "recordBottom": 817.1875,
+            "overflow": 0
+          },
+          {
+            "width": 1440,
+            "height": 1000,
+            "spinBottom": 758.1875,
+            "recordBottom": 851.1875,
+            "overflow": 0
+          }
+        ],
+        "axeViolations": 0,
+        "loadedFonts": true
+      }
+    },
+    {
+      "name": "Guest spin, turbo, scoring, all missions, pause, record and reload",
+      "passed": true,
+      "detail": {
+        "storedRecord": {
+          "version": 1,
+          "points": 284.32,
+          "revolutions": 568.65,
+          "peakRpm": 648,
+          "simulatedBlocks": 4,
+          "recordedAt": "2026-11-04T08:26:57.782Z"
+        },
+        "walletRequired": false
+      }
+    },
+    {
+      "name": "Keyboard, sound opt-in, event log, details and anchor navigation",
+      "passed": true,
+      "detail": "Passed"
+    },
+    {
+      "name": "No-provider spectator state, modal focus trap, Escape and focus return",
+      "passed": true,
+      "detail": "Passed"
+    },
+    {
+      "name": "Reduced motion keeps the wheel static while calculations remain usable",
+      "passed": true,
+      "detail": "Passed"
+    },
+    {
+      "name": "Browser storage blocked: recovery without wallet or transfer claims",
+      "passed": true,
+      "detail": "Passed"
+    },
+    {
+      "name": "Browser storage corrupt: recovery without wallet or transfer claims",
+      "passed": true,
+      "detail": "Passed"
+    },
+    {
+      "name": "EIP-6963 and legacy spectators: allowed RPC only, rejection, pending, changes and disconnect",
+      "passed": true,
+      "detail": {
+        "rpcMethods": [
+          "eth_requestAccounts"
+        ],
+        "requests": 6,
+        "scoreIndependent": true
+      }
+    },
+    {
+      "name": "Legacy browser fallback and mobile wallet app links",
+      "passed": true,
+      "detail": {
+        "appLinks": [
+          "Open in MetaMask",
+          "Open in Coinbase Wallet",
+          "Open in Phantom"
+        ],
+        "legacy": "Browser wallet"
+      }
+    },
+    {
+      "name": "Text enlargement and RTL reflow at 390",
+      "passed": true,
+      "detail": "Text enlargement and structural RTL only; not native browser zoom or translated copy."
+    },
+    {
+      "name": "Runtime health and offline service behavior",
+      "passed": true,
+      "detail": {
+        "scriptErrors": 0,
+        "externalServiceRequests": 0,
+        "subpath": "/preview/"
+      }
+    }
+  ],
+  "limitations": [
+    "Automated tests use wallet provider fixtures, not real wallet extensions or mobile apps.",
+    "No physical device, screen reader, or native 200% browser zoom tested.",
+    "WebKit was not run in this invocation."
+  ]
+}

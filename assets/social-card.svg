@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0v40" fill="none" stroke="#262a34" stroke-width="1"/></pattern></defs>
+  <rect width="1200" height="630" fill="#121216"/><rect width="1200" height="630" fill="url(#grid)"/>
+  <rect x="0" width="1200" height="10" fill="#35d07f"/>
+  <g font-family="Arial, sans-serif">
+    <text x="72" y="106" fill="#f2f2f4" font-size="32" font-weight="700">Squeek<tspan fill="#35d07f">Chain</tspan></text>
+    <text x="72" y="224" fill="#f2f2f4" font-size="62" font-weight="700">Testnet Simulator</text>
+    <text x="72" y="296" fill="#f2f2f4" font-size="62" font-weight="700">Kinetic Benchmark</text>
+    <text x="72" y="362" fill="#ffe600" font-size="28" font-weight="700">Demo Mode</text>
+    <text x="72" y="441" fill="#b0b5c1" font-size="24">An educational Proof-of-Hamster-Work demo.</text>
+    <text x="72" y="478" fill="#b0b5c1" font-size="24">Simulated scores only. No tokens transferred.</text>
+    <text x="72" y="563" fill="#35d07f" font-size="20">WHEELY9000 / Run the wheel. Record a demo score.</text>
+  </g>
+  <g transform="translate(956 294)">
+    <circle r="168" fill="#1a1a20" stroke="#393e49" stroke-width="12"/>
+    <circle r="153" fill="none" stroke="#35d07f" stroke-width="5"/>
+    <g stroke="#393e49" stroke-width="2"><path d="M-153 0h306M0-153v306M-108-108l216 216M-108 108l216-216"/></g>
+    <circle r="20" fill="#121216" stroke="#ffe600" stroke-width="3"/>
+    <g transform="translate(0 88)"><ellipse rx="48" ry="30" fill="#e89b35"/><ellipse cx="4" cy="9" rx="27" ry="18" fill="#ffe6c4"/><circle cx="33" cy="-9" r="25" fill="#e89b35"/><circle cx="21" cy="-31" r="12" fill="#d48622"/><circle cx="21" cy="-31" r="7" fill="#ffb9b9"/><rect x="27" y="-18" width="29" height="13" rx="4" fill="#17171b" stroke="#35d07f" stroke-width="3"/><path d="M34-12h17" stroke="#35d07f" stroke-width="2"/><circle cx="55" cy="6" r="4" fill="#ff8383"/><path d="m-24 22-9 15m18-13-2 16m33-15 12 12" stroke="#d48622" stroke-width="8" stroke-linecap="round"/></g>
+  </g>
+</svg>
