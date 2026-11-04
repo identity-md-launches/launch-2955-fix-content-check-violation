@@ -39,6 +39,55 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
+  padding-top: 40px; /* Space for disclaimer banner */
+}
+
+/* Sticky Disclaimer Banner */
+.testnet-disclaimer-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: #181c24;
+  border-bottom: 1px solid rgba(255, 230, 0, 0.3);
+  padding: 0.45rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-sub);
+}
+
+.disclaimer-content {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.disclaimer-tag {
+  background: rgba(255, 230, 0, 0.15);
+  color: var(--sqk-gold);
+  border: 1px solid var(--sqk-gold);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+
+.disclaimer-link {
+  color: var(--sqk-green);
+  text-decoration: underline;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.disclaimer-link:hover {
+  color: #fff;
 }
 
 /* Background Matrix Grid */
@@ -61,11 +110,11 @@ body {
 /* Navbar */
 .sqk-navbar {
   position: fixed;
-  top: 0;
+  top: 38px; /* below disclaimer banner */
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(23, 23, 27, 0.85);
+  background: rgba(23, 23, 27, 0.88);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
 }
@@ -223,7 +272,7 @@ body {
 .sqk-hero {
   position: relative;
   z-index: 1;
-  padding: 8.5rem 1.5rem 4rem;
+  padding: 7.5rem 1.5rem 3.5rem;
   max-width: 1040px;
   margin: 0 auto;
   text-align: center;
@@ -660,6 +709,25 @@ body {
 
 .full-width {
   width: 100%;
+}
+
+.sim-claim-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.claim-notice {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  text-align: center;
+}
+
+.claim-notice a {
+  color: var(--sqk-green);
+  text-decoration: underline;
 }
 
 /* Aura Hub */
@@ -1136,6 +1204,12 @@ body {
 
 /* Responsive */
 @media (max-width: 900px) {
+  body {
+    padding-top: 60px;
+  }
+  .sqk-navbar {
+    top: 55px;
+  }
   .simulator-wrapper, .aura-hub-grid, .tokenomics-layout {
     grid-template-columns: 1fr;
   }
