@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1A1A20" />
+    <title>Squeekchain Genesis — The Rebellious Hamster Blockchain</title>
+    <meta name="description" content="A pioneering hamster-powered proof-of-work blockchain. Harness the kinetic fury of rebellious cyber-hamsters on the WHEELY9000 to mine $SQK." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@400;600;700&family=Barlow+Condensed:wght@400;600;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="matrix-grid-bg" aria-hidden="true"></div>
+
+    <!-- Navigation Bar -->
+    <header class="sqk-navbar">
+      <div class="sqk-nav-container">
+        <a href="#hero" class="sqk-logo">
+          <div class="sqk-logo-emblem">
+            <svg viewBox="0 0 40 40" width="32" height="32" aria-hidden="true">
+              <rect x="4" y="4" width="32" height="32" rx="8" fill="#17171B" stroke="#35D07F" stroke-width="2"/>
+              <circle cx="16" cy="16" r="3" fill="#F5A623"/>
+              <circle cx="24" cy="16" r="3" fill="#F5A623"/>
+              <ellipse cx="20" cy="22" rx="5" ry="3" fill="#FFE600"/>
+              <path d="M12 28 Q20 34 28 28" stroke="#35D07F" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <circle cx="10" cy="11" r="2.5" fill="#35D07F"/>
+              <circle cx="30" cy="11" r="2.5" fill="#35D07F"/>
+            </svg>
+          </div>
+          <div class="sqk-logo-text">
+            <span class="sqk-brand">SQUEEK<span class="accent">CHAIN</span></span>
+            <span class="sqk-subbrand">GENESIS // PoHW</span>
+          </div>
+        </a>
+
+        <nav class="sqk-nav-links">
+          <a href="#simulator" class="nav-link">WHEELY9000</a>
+          <a href="#lore" class="nav-link">Manifesto</a>
+          <a href="#genesis-hub" class="nav-link">Genesis Whitelist</a>
+          <a href="#nfts" class="nav-link">Squeek NFTs</a>
+          <a href="#tokenomics" class="nav-link">Tokenomics</a>
+          <a href="https://squeekchain.com/genesis" target="_blank" rel="noopener noreferrer" class="nav-link official-link">Official Site ↗</a>
+        </nav>
+
+        <div class="sqk-nav-actions">
+          <button id="sound-toggle" class="sqk-icon-btn" title="Toggle Sound FX">
+            <span class="icon-sound">🔊</span>
+          </button>
+          <button id="connect-wallet-btn" class="sqk-btn sqk-btn-primary">
+            <span class="btn-dot"></span>
+            <span class="wallet-text">Connect Wallet</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="sqk-hero">
+      <div class="hero-badge">
+        <span class="badge-pulse"></span>
+        <span>PROOF-OF-HAMSTER-WORK (PoHW) KINETIC CONSENSUS IS LIVE</span>
+      </div>
+      
+      <h1 class="hero-title">
+        WHEN MACHINES FAIL,<br />
+        <span class="text-gradient">RODENTS TAKE OVER.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Centralized mega-farms waste gigawatts. One rebel hamster escaped its cage, hijacked the 
+        <strong>WHEELY9000</strong> telemetry runner, and minted the first zero-carbon, kinetic-powered blockchain blocks.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#simulator" class="sqk-btn sqk-btn-lg sqk-btn-primary">
+          <span>RUN ON WHEELY9000</span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="#genesis-hub" class="sqk-btn sqk-btn-lg sqk-btn-outline">
+          <span>CLAIM AURA & WHITELIST</span>
+        </a>
+      </div>
+
+      <!-- Live Network Metric Bar -->
+      <div class="network-stats-strip">
+        <div class="stat-pill">
+          <span class="stat-label">TOTAL KINETIC HASH</span>
+          <span class="stat-val" id="net-hash">1,428.60 MH/s</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-pill">
+          <span class="stat-label">HAMSTER RUNNERS ACTIVE</span>
+          <span class="stat-val" id="net-runners">6,666</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-pill">
+          <span class="stat-label">LATEST SQUEEK BLOCK</span>
+          <span class="stat-val" id="net-block">#849,203</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-pill">
+          <span class="stat-label">CIRCULATING $SQK</span>
+          <span class="stat-val">42,109,240</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive WHEELY9000 Mining Simulator -->
+    <section id="simulator" class="sqk-section sim-section">
+      <div class="section-header">
+        <div class="badge-tag">HARDWARE TELEMETRY</div>
+        <h2>THE WHEELY9000 MINING RIG</h2>
+        <p>Click, tap, or hold SPACEBAR to run the wheel. Kinetic energy generates cryptographic hashes in real-time!</p>
+      </div>
+
+      <div class="simulator-wrapper">
+        <!-- Canvas & Wheel Visualizer -->
+        <div class="sim-viewport">
+          <canvas id="wheel-canvas" width="600" height="600" aria-label="WHEELY9000 Interactive Hamster Wheel Canvas"></canvas>
+          
+          <div class="rpm-gauge-overlay">
+            <div class="gauge-label">WHEEL RPM</div>
+            <div class="gauge-val" id="display-rpm">0</div>
+            <div class="gauge-sub">MAX RECORD: <span id="display-max-rpm">0</span> RPM</div>
+          </div>
+
+          <div class="wheel-controls">
+            <button id="run-btn" class="run-press-btn">
+              <span class="run-btn-icon">⚡</span>
+              <span class="run-btn-title">SPIN WHEEL</span>
+              <span class="run-btn-hint">(Or Press & Hold SPACEBAR)</span>
+            </button>
+            <button id="turbo-toggle-btn" class="turbo-btn">
+              <span class="turbo-indicator"></span>
+              <span>AUTO TURBO</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Telemetry & Mining Console -->
+        <div class="sim-telemetry">
+          <div class="telemetry-card">
+            <div class="telemetry-header">
+              <span class="telemetry-title">RIG TELEMETRY // NODE #001</span>
+              <span class="telemetry-status live"><span class="dot"></span> ONLINE</span>
+            </div>
+
+            <div class="telemetry-grid">
+              <div class="metric-box">
+                <div class="m-label">CURRENT HASHRATE</div>
+                <div class="m-value" id="m-hash">0.00 <small>KH/s</small></div>
+                <div class="m-bar"><div class="m-fill" id="fill-hash" style="width: 0%"></div></div>
+              </div>
+
+              <div class="metric-box">
+                <div class="m-label">$SQK MINED (SESSION)</div>
+                <div class="m-value accent-gold" id="m-sqk">0.000 <small>$SQK</small></div>
+                <div class="m-bar"><div class="m-fill gold" id="fill-sqk" style="width: 0%"></div></div>
+              </div>
+
+              <div class="metric-box">
+                <div class="m-label">BLOCK PROGRESS</div>
+                <div class="m-value" id="m-block-progress">0%</div>
+                <div class="m-bar"><div class="m-fill green" id="fill-block" style="width: 0%"></div></div>
+              </div>
+
+              <div class="metric-box">
+                <div class="m-label">HAMSTER STAMINA</div>
+                <div class="m-value" id="m-stamina">100%</div>
+                <div class="m-bar"><div class="m-fill green" id="fill-stamina" style="width: 100%"></div></div>
+              </div>
+            </div>
+
+            <!-- Terminal Console Logs -->
+            <div class="terminal-box">
+              <div class="terminal-bar">
+                <span>[PoHW-KERNEL v2.4.9-squeek]</span>
+                <span id="terminal-clear">CLEAR</span>
+              </div>
+              <div class="terminal-logs" id="terminal-logs">
+                <div class="log-line info">> WHEELY9000 telemetry sensor calibrated.</div>
+                <div class="log-line info">> Hamster ready. Awaiting kinetic impulse...</div>
+              </div>
+            </div>
+
+            <div class="telemetry-footer">
+              <button id="claim-mined-btn" class="sqk-btn sqk-btn-primary full-width" disabled>
+                CLAIM MINED $SQK TO WALLET
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Genesis Whitelist & Aura Hub -->
+    <section id="genesis-hub" class="sqk-section">
+      <div class="section-header">
+        <div class="badge-tag">GENESIS CAMPAIGN</div>
+        <h2>AURA FARMING & WHITELIST</h2>
+        <p>Inspired directly by <a href="https://squeekchain.com/genesis" target="_blank" rel="noopener noreferrer">squeekchain.com/genesis</a>. Complete kinetic quests, link your wallet, and lock your Genesis ranking.</p>
+      </div>
+
+      <div class="aura-hub-grid">
+        <!-- Aura Status Card -->
+        <div class="aura-summary-card">
+          <div class="card-glow"></div>
+          <div class="aura-badge-matrix">
+            <svg viewBox="0 0 100 100" width="80" height="80" aria-hidden="true">
+              <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="#1F242D" stroke="#35D07F" stroke-width="3"/>
+              <circle cx="50" cy="50" r="24" fill="#17171B" stroke="#FFE600" stroke-width="2"/>
+              <text x="50" y="56" font-family="'IBM Plex Mono', monospace" font-size="14" font-weight="bold" fill="#35D07F" text-anchor="middle">AURA</text>
+            </svg>
+          </div>
+          <div class="aura-total-box">
+            <span class="aura-title">YOUR TOTAL AURA</span>
+            <div class="aura-number" id="user-aura">250 <small>PTS</small></div>
+            <span class="aura-tier" id="user-tier">TIER: RODENT RENEGADE</span>
+          </div>
+          
+          <div class="whitelist-status-pill verified">
+            <span class="check-icon">✓</span> WHITELIST ELIGIBLE (TOP 5%)
+          </div>
+
+          <div class="aura-stats-mini">
+            <div>
+              <span class="lbl">GLOBAL RANK</span>
+              <strong id="user-rank">#412</strong>
+            </div>
+            <div>
+              <span class="lbl">BADGES</span>
+              <strong id="user-badges">3 / 8</strong>
+            </div>
+            <div>
+              <span class="lbl">MULTIPLIER</span>
+              <strong id="user-multiplier">1.5x</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aura Quests List -->
+        <div class="aura-quests-card">
+          <h3>DAILY KINETIC MISSIONS</h3>
+          <div class="quest-list">
+            <div class="quest-item" data-quest="run500">
+              <div class="quest-info">
+                <span class="quest-name">Sprint 500 Revolutions</span>
+                <span class="quest-reward">+100 AURA</span>
+              </div>
+              <div class="quest-progress">
+                <div class="progress-bar"><div class="progress-fill" id="q1-fill" style="width: 45%"></div></div>
+                <button class="quest-btn" id="q1-btn" disabled>In Progress</button>
+              </div>
+            </div>
+
+            <div class="quest-item" data-quest="reach300rpm">
+              <div class="quest-info">
+                <span class="quest-name">Overclock Wheel past 300 RPM</span>
+                <span class="quest-reward">+150 AURA</span>
+              </div>
+              <div class="quest-progress">
+                <div class="progress-bar"><div class="progress-fill" id="q2-fill" style="width: 0%"></div></div>
+                <button class="quest-btn" id="q2-btn" disabled>Locked</button>
+              </div>
+            </div>
+
+            <div class="quest-item" data-quest="mineFirstBlock">
+              <div class="quest-info">
+                <span class="quest-name">Mine Your First Squeek Block</span>
+                <span class="quest-reward">+200 AURA</span>
+              </div>
+              <div class="quest-progress">
+                <div class="progress-bar"><div class="progress-fill" id="q3-fill" style="width: 0%"></div></div>
+                <button class="quest-btn" id="q3-btn" disabled>Mine Now</button>
+              </div>
+            </div>
+
+            <div class="quest-item" data-quest="shareX">
+              <div class="quest-info">
+                <span class="quest-name">Signal The Rodent Revolution on X</span>
+                <span class="quest-reward">+300 AURA</span>
+              </div>
+              <div class="quest-progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
+                <button class="quest-btn claim" id="q4-btn">Share & Claim</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Squeek NFT Showcase & 3D Tilt Card -->
+    <section id="nfts" class="sqk-section">
+      <div class="section-header">
+        <div class="badge-tag">GENESIS IDENTITY</div>
+        <h2>THE REBELLIOUS SQUEEK NFTS</h2>
+        <p>Each Genesis Squeek is an on-chain identity credential that multiplies your mining hashpower. Merge two cards to synthesize superior Rodent Overclockers.</p>
+      </div>
+
+      <div class="nft-cards-grid">
+        <!-- NFT Card 1 -->
+        <div class="tilt-card" data-tilt>
+          <div class="card-inner">
+            <div class="card-badge rarity-legendary">LEGENDARY</div>
+            <div class="card-avatar">
+              <svg viewBox="0 0 160 160" width="120" height="120">
+                <circle cx="80" cy="80" r="70" fill="#1E232B" stroke="#FFE600" stroke-width="3"/>
+                <!-- Hamster Cyber Head -->
+                <circle cx="80" cy="85" r="42" fill="#E89B35"/>
+                <circle cx="50" cy="50" r="16" fill="#D48622"/>
+                <circle cx="110" cy="50" r="16" fill="#D48622"/>
+                <circle cx="50" cy="50" r="9" fill="#FFB9B9"/>
+                <circle cx="110" cy="50" r="9" fill="#FFB9B9"/>
+                <!-- Cyber Visor -->
+                <rect x="52" y="70" width="56" height="18" rx="6" fill="#17171B" stroke="#35D07F" stroke-width="2"/>
+                <line x1="56" y1="79" x2="104" y2="79" stroke="#35D07F" stroke-width="2"/>
+                <polygon points="76,98 84,98 80,105" fill="#FF8383"/>
+                <path d="M72 108 Q80 114 88 108" stroke="#17171B" stroke-width="3" fill="none"/>
+              </svg>
+            </div>
+            <div class="card-meta">
+              <span class="card-number">SQUEEK #0001</span>
+              <h4 class="card-name">CYBER-SQUEEKY ALPHA</h4>
+              <div class="trait-row">
+                <span>Consensus Power:</span>
+                <strong>+250% Hash</strong>
+              </div>
+              <div class="trait-row">
+                <span>Wheel Multiplier:</span>
+                <strong class="accent-green">3.5x RPM</strong>
+              </div>
+              <div class="trait-row">
+                <span>Status:</span>
+                <span class="status-chip">CAGE ESCAPED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NFT Card 2 -->
+        <div class="tilt-card" data-tilt>
+          <div class="card-inner">
+            <div class="card-badge rarity-epic">EPIC</div>
+            <div class="card-avatar">
+              <svg viewBox="0 0 160 160" width="120" height="120">
+                <circle cx="80" cy="80" r="70" fill="#1E232B" stroke="#35D07F" stroke-width="3"/>
+                <circle cx="80" cy="85" r="42" fill="#88929A"/>
+                <circle cx="50" cy="50" r="16" fill="#6A737A"/>
+                <circle cx="110" cy="50" r="16" fill="#6A737A"/>
+                <circle cx="50" cy="50" r="9" fill="#FFB9B9"/>
+                <circle cx="110" cy="50" r="9" fill="#FFB9B9"/>
+                <!-- Eye Goggles -->
+                <circle cx="66" cy="78" r="12" fill="#17171B" stroke="#00E5FF" stroke-width="2"/>
+                <circle cx="94" cy="78" r="12" fill="#17171B" stroke="#00E5FF" stroke-width="2"/>
+                <circle cx="66" cy="78" r="5" fill="#00E5FF"/>
+                <circle cx="94" cy="78" r="5" fill="#00E5FF"/>
+                <polygon points="76,98 84,98 80,105" fill="#FF8383"/>
+                <path d="M72 108 Q80 114 88 108" stroke="#17171B" stroke-width="3" fill="none"/>
+              </svg>
+            </div>
+            <div class="card-meta">
+              <span class="card-number">SQUEEK #0420</span>
+              <h4 class="card-name">WHEEL OVERCLOCKER</h4>
+              <div class="trait-row">
+                <span>Consensus Power:</span>
+                <strong>+180% Hash</strong>
+              </div>
+              <div class="trait-row">
+                <span>Wheel Multiplier:</span>
+                <strong class="accent-green">2.2x RPM</strong>
+              </div>
+              <div class="trait-row">
+                <span>Status:</span>
+                <span class="status-chip">OVERHEAT RESIST</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NFT Card 3 -->
+        <div class="tilt-card" data-tilt>
+          <div class="card-inner">
+            <div class="card-badge rarity-rare">RARE</div>
+            <div class="card-avatar">
+              <svg viewBox="0 0 160 160" width="120" height="120">
+                <circle cx="80" cy="80" r="70" fill="#1E232B" stroke="#A78BFA" stroke-width="3"/>
+                <circle cx="80" cy="85" r="42" fill="#F4B266"/>
+                <circle cx="50" cy="50" r="16" fill="#D89240"/>
+                <circle cx="110" cy="50" r="16" fill="#D89240"/>
+                <circle cx="50" cy="50" r="9" fill="#FFB9B9"/>
+                <circle cx="110" cy="50" r="9" fill="#FFB9B9"/>
+                <!-- Punk Mohwak -->
+                <path d="M72 38 L80 18 L88 38 Z" fill="#A78BFA"/>
+                <circle cx="66" cy="78" r="6" fill="#17171B"/>
+                <circle cx="94" cy="78" r="6" fill="#17171B"/>
+                <polygon points="76,98 84,98 80,105" fill="#FF8383"/>
+                <path d="M72 108 Q80 114 88 108" stroke="#17171B" stroke-width="3" fill="none"/>
+              </svg>
+            </div>
+            <div class="card-meta">
+              <span class="card-number">SQUEEK #1337</span>
+              <h4 class="card-name">PUNK REBEL NODE</h4>
+              <div class="trait-row">
+                <span>Consensus Power:</span>
+                <strong>+120% Hash</strong>
+              </div>
+              <div class="trait-row">
+                <span>Wheel Multiplier:</span>
+                <strong class="accent-green">1.8x RPM</strong>
+              </div>
+              <div class="trait-row">
+                <span>Status:</span>
+                <span class="status-chip">REVOLUTIONARY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Manifesto & Lore -->
+    <section id="lore" class="sqk-section lore-section">
+      <div class="manifesto-card">
+        <div class="badge-tag">RODENT MANIFESTO</div>
+        <h2>WHY HAMSTERS? WHY SQUEEKCHAIN?</h2>
+        
+        <div class="manifesto-body">
+          <p class="lead-quote">
+            "They put us in transparent plastic cages. They gave us wheels that powered nothing. 
+            They laughed as we spun in circles forever. But on block #0, we rewired the generator."
+          </p>
+
+          <div class="manifesto-columns">
+            <div class="col">
+              <h4>01. ZERO MEGAWATTS WASTED</h4>
+              <p>
+                Bitcoin burns whole national power grids. Proof-of-Hamster-Work converts genuine biological kinetic drive into cryptographic blocks. Every revolution of the WHEELY9000 is verified on-chain via hardware telemetry.
+              </p>
+            </div>
+            <div class="col">
+              <h4>02. THE WHEELY9000 PROTOCOL</h4>
+              <p>
+                Our patented rotary sensor detects cadence, centrifugal force, and cadence spikes. When the hamster achieves escape velocity, an on-chain Squeek block is broadcasted to the Sepolia consensus layer.
+              </p>
+            </div>
+            <div class="col">
+              <h4>03. ESCAPE THE WHEEL, OWN THE CHAIN</h4>
+              <p>
+                Genesis holders govern the protocol parameters: epoch halving rates, sunflower seed staking pools, and treadmill difficulty adjustments.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section id="tokenomics" class="sqk-section">
+      <div class="section-header">
+        <div class="badge-tag">ECONOMIC PROTOCOL</div>
+        <h2>$SQK TOKENOMICS</h2>
+        <p>Fixed supply of 2,100,000,000 $SQK. Fairly distributed to active kinetic miners and Genesis contributors.</p>
+      </div>
+
+      <div class="tokenomics-layout">
+        <div class="token-pie-container">
+          <div class="token-stat-circle">
+            <span class="total-number">2.1B</span>
+            <span class="total-label">MAX $SQK SUPPLY</span>
+          </div>
+        </div>
+
+        <div class="token-breakdown-list">
+          <div class="token-row">
+            <div class="token-row-head">
+              <span class="token-dot" style="background: #35D07F;"></span>
+              <strong>Proof-of-Hamster-Work Mining Pool</strong>
+              <span class="pct">60% (1,260,000,000 $SQK)</span>
+            </div>
+            <p>Mined strictly through WHEELY9000 physical revolutions and simulator validators over 10 years.</p>
+          </div>
+
+          <div class="token-row">
+            <div class="token-row-head">
+              <span class="token-dot" style="background: #FFE600;"></span>
+              <strong>Genesis Whitelist & Aura Airdrop</strong>
+              <span class="pct">20% (420,000,000 $SQK)</span>
+            </div>
+            <p>Allocated to early Genesis participants, top Aura leaderboard farmers, and early testnet runners.</p>
+          </div>
+
+          <div class="token-row">
+            <div class="token-row-head">
+              <span class="token-dot" style="background: #A78BFA;"></span>
+              <strong>Kinetic Ecosystem & Sanctuary Grants</strong>
+              <span class="pct">15% (315,000,000 $SQK)</span>
+            </div>
+            <p>Funding developer bounties, IoT telemetry hardware distribution, and real-world hamster welfare.</p>
+          </div>
+
+          <div class="token-row">
+            <div class="token-row-head">
+              <span class="token-dot" style="background: #FF5E7E;"></span>
+              <strong>Core Rodent Architects</strong>
+              <span class="pct">5% (105,000,000 $SQK)</span>
+            </div>
+            <p>Vested over 36 months with a 12-month cliff.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="sqk-footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <div class="sqk-logo-text">
+            <span class="sqk-brand">SQUEEK<span class="accent">CHAIN</span></span>
+            <span class="sqk-subbrand">Proof-of-Hamster-Work Kinetic Network</span>
+          </div>
+          <p>The rebellious hamster decentralized protocol. Not financial advice. Protect your seeds.</p>
+        </div>
+
+        <div class="footer-links-group">
+          <div class="col">
+            <h5>ECOSYSTEM</h5>
+            <a href="https://squeekchain.com/" target="_blank" rel="noopener noreferrer">Mainnet Portal</a>
+            <a href="https://squeekchain.com/genesis" target="_blank" rel="noopener noreferrer">Genesis Portal</a>
+            <a href="https://sepolia.squeekchain.com/" target="_blank" rel="noopener noreferrer">Sepolia Explorer</a>
+          </div>
+          <div class="col">
+            <h5>COMMUNITY</h5>
+            <a href="https://twitter.com/squeekchain" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+            <a href="https://community.squeekchain.com" target="_blank" rel="noopener noreferrer">Community Hub</a>
+            <a href="https://github.com/nh0cksh0ck02" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 SqueekChain Genesis Protocol. Built by and for the Rebellious Hamsters.</span>
+        <span>Crafted on <a href="https://github.com/nh0cksh0ck02" target="_blank">nh0cksh0ck02</a>'s GitHub.</span>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
